@@ -22,9 +22,12 @@ export const Title = styled.h1`
   }
 `;
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.form`
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const NameInput = styled.input<{ error: boolean }>`

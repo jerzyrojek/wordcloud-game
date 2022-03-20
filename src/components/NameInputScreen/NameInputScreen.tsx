@@ -10,7 +10,8 @@ const NameInputScreen = ({ setNameProvided }: PropsType) => {
   const [username, setUsername] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
 
-  const handlePlayClicked = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (username.length < 3 || username.length > 50) {
       setError(true);
       return;
@@ -23,7 +24,7 @@ const NameInputScreen = ({ setNameProvided }: PropsType) => {
     <>
       <Styled.Wrapper>
         <Styled.Title>Wordcloud game</Styled.Title>
-        <Styled.InputWrapper>
+        <Styled.InputWrapper onSubmit={(e) => handleSubmit(e)}>
           {error && (
             <Styled.Error>Should be between 3 and 50 characters</Styled.Error>
           )}
@@ -37,8 +38,8 @@ const NameInputScreen = ({ setNameProvided }: PropsType) => {
             }}
             placeholder="Enter your nickname here..."
           />
+          <GlobalButton type="submit">play</GlobalButton>
         </Styled.InputWrapper>
-        <GlobalButton onClick={handlePlayClicked}>play</GlobalButton>
       </Styled.Wrapper>
     </>
   );

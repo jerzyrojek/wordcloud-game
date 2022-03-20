@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const WordWrapper = styled.div<{ selected: boolean; position: string }>`
+export const MainWrapper = styled.div<{ selected: boolean; position: string }>`
   color: ${({ selected }) => selected && '#a09f9f'};
   margin: 10px;
   height: 20px;
@@ -9,10 +9,10 @@ export const WordWrapper = styled.div<{ selected: boolean; position: string }>`
   justify-content: ${({ position }) => position};
   align-self: ${({ position }) => position};
   align-items: center;
-  position: relative;
 `;
 
-export const Word = styled.p<{ status: 'Good' | 'Bad' | null }>`
+export const WordWrapper = styled.div<{ status: 'Good' | 'Bad' | null }>`
+  position: relative;
   color: ${({ status }) =>
     status && (status === 'Good' ? '#6dd06d' : '#FF0000FF')};
   cursor: pointer;
@@ -28,4 +28,6 @@ export const Status = styled.span<{ status: 'Good' | 'Bad' | null }>`
   font-weight: 600;
   text-align: center;
   top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
 `;

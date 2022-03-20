@@ -17,12 +17,12 @@ const WordElement = ({
   position,
 }: PropsType) => {
   return (
-    <Styled.WordWrapper position={position} selected={selected}>
-      {status && <Styled.Status status={status}>{status}</Styled.Status>}
-      <Styled.Word status={status} onClick={onClick}>
+    <Styled.MainWrapper position={position} selected={selected}>
+      <Styled.WordWrapper status={status} onClick={onClick}>
+        {status && <Styled.Status status={status}>{status}</Styled.Status>}
         {word}
-      </Styled.Word>
-    </Styled.WordWrapper>
+      </Styled.WordWrapper>
+    </Styled.MainWrapper>
   );
 };
 

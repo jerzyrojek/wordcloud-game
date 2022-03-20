@@ -41,9 +41,17 @@ const SelectWordsScreen = ({ setFinalScore }: PropsType) => {
   };
 
   useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    //timeout set to mimic loading time on api call
     fetchData().then((res) => {
-      setRandomQuestion(res[Math.floor(Math.random() * res.length)]);
+      timeout = setTimeout(
+        () => setRandomQuestion(res[Math.floor(Math.random() * res.length)]),
+        2 * 1000,
+      );
     });
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   useEffect(() => {
@@ -117,7 +125,7 @@ const SelectWordsScreen = ({ setFinalScore }: PropsType) => {
   return (
     <Styled.Wrapper>
       {!randomQuestion ? (
-        <div>Loading data...</div>
+        <Styled.Loader />
       ) : (
         <>
           <Styled.Question>

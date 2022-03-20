@@ -8,7 +8,6 @@ const MainContent = () => {
   const name = localStorage.getItem('userName');
   const [nameProvided, setNameProvided] = useState<boolean>(Boolean(name));
   const [finalScore, setFinalScore] = useState<null | number>(null);
-
   return (
     <>
       <Styled.MainContentWrapper>
@@ -18,7 +17,12 @@ const MainContent = () => {
             {finalScore === null ? (
               <SelectWordsScreen setFinalScore={setFinalScore} />
             ) : (
-              <SummaryScreen username={name} score={finalScore} />
+              <SummaryScreen
+                resetScore={() => setFinalScore(null)}
+                setNameProvided={setNameProvided}
+                username={name}
+                score={finalScore}
+              />
             )}
           </>
         )}

@@ -23,4 +23,13 @@ export const Score = styled.div`
   font-weight: 700;
   color: #64affa;
   font-size: 25px;
+  margin-bottom: 24px;
+`;
+
+export const ButtonsWrapper = styled.div`
+  font-size: 16px;
+  display: flex;
+  button:first-child {
+    margin-right: 24px;
+  }
 `;

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components/macro';
+import styled from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -32,4 +33,20 @@ export const GlobalStyle = createGlobalStyle`
     height: auto;
   }
 
+`;
+
+export const GlobalButton = styled.button`
+  cursor: pointer;
+  background-color: #ffffffff;
+  border-radius: 5px;
+  border: 1px solid #2882d9;
+  color: #2882d9;
+  padding: 8px 40px;
+  :active {
+    background-color: deepskyblue;
+    color: #ffffffff;
+  }
+  :disabled {
+    opacity: 0.6;
+  }
 `;
